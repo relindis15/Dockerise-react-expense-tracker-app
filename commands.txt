@@ -1,0 +1,24 @@
+"""
+create repository
+clone repository 'git clone'
+check the node version 'node -v'
+npm install 'node package manager' to install or dependencies
+npm start the expense request opens and you try to add an expense to the add
+Go to docker hub and search official nodejs image'node:<version>-alpine'
+where you see version put 14 
+set up working directory of react inside a container for react application'WORKDIR /app'
+Build the docker file
+#Get an official node.js image from docker hub
+FROM node:14-alpine
+#setting working directory for react app from where files are saved inside a container
+WORKDIR /usr/src/app
+#this is to copy all package lock and package .json files to the working directory
+COPY package*.js ./
+#install dependencies
+RUN npm install
+#copy rest of the files in the source code'src'
+COPY ..
+#this is to build the application
+RUN npm run build
+
+
